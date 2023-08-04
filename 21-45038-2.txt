@@ -1,0 +1,116 @@
+1. BFS----------------------------------------------------------------
+import collections
+
+def bfs(graph, root):
+
+    visited, queue = set(), collections.deque([root])
+    visited.add(root)
+
+    while queue:
+
+        
+        vertex = queue.popleft()
+        print(str(vertex) + " ", end="")
+
+        
+        for neighbour in graph[vertex]:
+            if neighbour not in visited:
+                visited.add(neighbour)
+                queue.append(neighbour)
+
+
+if __name__ == '__main__':
+    graph = {0: [1, 2], 1: [2], 2: [3], 3: [1, 2]}
+    print("Following is Breadth First Traversal: ")
+    bfs(graph, 0)import collections
+
+def bfs(graph, root):
+
+    visited, queue = set(), collections.deque([root])
+    visited.add(root)
+
+    while queue:
+
+        
+        vertex = queue.popleft()
+        print(str(vertex) + " ", end="")
+
+        
+        for neighbour in graph[vertex]:
+            if neighbour not in visited:
+                visited.add(neighbour)
+                queue.append(neighbour)
+
+
+if __name__ == '__main__':
+    graph = {0: [1, 2], 1: [2], 2: [3], 3: [1, 2]}
+    print("Following is Breadth First Traversal: ")
+    bfs(graph, 0)
+
+
+2. DFS---------------------------------------------------------------------------
+def dfs(graph, start, visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+
+    print(start)
+
+    for next in graph[start] - visited:
+        dfs(graph, next, visited)
+    return visited
+
+
+graph = {'0': set(['1', '2']),
+         '1': set(['0', '3', '4']),
+         '2': set(['0']),
+         '3': set(['1']),
+         '4': set(['2', '3'])}
+
+dfs(graph, '0')
+			
+			
+3. UCS------------------------------------------		
+import heapq
+
+# Define the graph as an adjacency list with weights
+graph = {
+    'A': [('B', 5), ('C', 3)],
+    'B': [('A', 5), ('D', 2), ('E', 4)],
+    'C': [('A', 3), ('F', 6), ('G', 7)],
+    'D': [('B', 2)],
+    'E': [('B', 4)],
+    'F': [('C', 6)],
+    'G': [('C', 7)]
+}
+
+def ucs(start, goal):
+    priority_queue = [(0, start)]  # A priority queue containing tuples (cost, node)
+    visited = set()
+
+    while priority_queue:
+        cost, node = heapq.heappop(priority_queue)
+
+        if node in visited:
+            continue
+
+        visited.add(node)
+
+        if node == goal:
+            return cost
+
+        for neighbor, edge_cost in graph[node]:
+            if neighbor not in visited:
+                heapq.heappush(priority_queue, (cost + edge_cost, neighbor))
+
+    return None  # If goal is not reachable from the start node
+
+# Starting node and goal node for UCS
+start_node = 'A'
+goal_node = 'G'
+
+shortest_path_cost = ucs(start_node, goal_node)
+if shortest_path_cost is not None:
+    print(f"Shortest path cost from {start_node} to {goal_node}:", shortest_path_cost)
+else:
+    print(f"Goal {goal_node} is not reachable from {start_node}.")

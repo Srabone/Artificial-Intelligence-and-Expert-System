@@ -1,0 +1,98 @@
+
+Srabone Raxit 21-45038-2
+
+3)import math
+a=7
+b=3
+c=5
+s = (a + b + c) / 2
+ans = math.sqrt(s*(s-a)*(s-b)*(s-c))
+print("Area of a triangle:", ans)
+
+4) a=7
+b=3
+ans = a*b
+print("Area of a triangle:", ans)
+
+1) sub1= 73
+sub2= 88
+sub3= 54
+sub4= 62
+sub5= 76
+sub6= 66
+sub7= 90
+sub8= 83
+avg = (sub1+sub2+sub3+sub4+sub5+sub6+sub7+sub8)/8
+if(avg>=90 and avg<=100):
+    print("Grade 4.00")
+elif(avg >=85 and avg<90):
+    print("Grade 3.75")
+elif(avg >=80 and avg<85):
+    print("Grade 3.50")
+elif(avg >=75 and avg<80):
+    print("Grade 3.25")
+elif(avg >=70 and avg<75):
+    print("Grade 3.00")
+elif(avg >=65 and avg<70):
+    print("Grade 2.75")
+elif(avg >=60 and avg<65):
+    print("Grade 2.50")
+elif(avg >=50 and avg<60):
+    print("Grade 2.25")
+else:
+    print("Grade 0.00")
+
+5) f=43
+c=34
+fToC= ((f-32)*(5/9))
+cToF= ((c*(9/5))+32)
+print("Fahrenheit to Celcius is", fToC)
+print("Celcius to Fahrenheit is", cToF)
+
+6) num=-4567
+if(num<0):
+    print("Number is negative")
+elif(num==0):
+    print("Number is zero")
+else:
+    print("Number is positive")
+
+8) n = 6
+fact = 1
+if n < 0:
+    print("Factorial does not exist for negative numbers")
+elif n == 0:
+    print("The factorial of 0 is 1")
+else:
+    for i in range(1, n + 1):  #i 1 to 4
+        fact = fact * i
+    print("The factorial of",n,"is",fact)
+
+2) num=2442
+temp=num
+rev=0
+while(num, 0):
+    dig=num%10
+    rev=rev*10+dig
+    num=num//10
+if(temp==rev):
+    print("This is palindrome num")
+else:
+    print("Not palindrome")
+
+7) nterms = 4
+n1, n2 = 0, 1
+count = 0
+if nterms <= 0:
+   print("Please enter a positive integer")
+elif nterms == 1:
+   print("Fibonacci sequence upto",nterms,":")
+   print(n1)
+else:
+   print("Fibonacci sequence:")
+   while count < nterms:
+       print(n1)
+       nth = n1 + n2
+       n1 = n2
+       n2 = nth
+       count += 1
